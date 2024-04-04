@@ -141,7 +141,7 @@ function token_token_info() {
     $info += _book_token_info();
   }
   if (\Drupal::moduleHandler()->moduleExists('menu_ui')) {
-    $info += _menu_ui_token_info();
+    $info = array_merge_recursive($info, _menu_ui_token_info());
   }
 
   // Node tokens.

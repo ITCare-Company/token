@@ -11,7 +11,7 @@ use Drupal\Core\Url;
  *
  * @group token
  */
-class NodeTest extends KernelTestBase {
+class NodeTest extends TokenKernelTestBase {
 
   /**
    * {@inheritdoc}

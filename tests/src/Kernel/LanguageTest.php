@@ -13,7 +13,7 @@ use Drupal\Core\DependencyInjection\ContainerBuilder;
  *
  * @group token
  */
-class LanguageTest extends KernelTestBase {
+class LanguageTest extends TokenKernelTestBase {
 
   /**
    * {@inheritdoc}

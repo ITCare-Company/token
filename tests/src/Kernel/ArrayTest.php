@@ -7,7 +7,7 @@ namespace Drupal\Tests\token\Kernel;
  *
  * @group token
  */
-class ArrayTest extends KernelTestBase {
+class ArrayTest extends TokenKernelTestBase {
 
   function testArrayTokens() {
     // Test a simple array.

@@ -10,7 +10,7 @@ use Drupal\Core\Url;
  *
  * @group token
  */
-class BookTest extends KernelTestBase {
+class BookTest extends TokenKernelTestBase {
 
   /**
    * {@inheritdoc}

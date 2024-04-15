@@ -13,7 +13,7 @@ use Drupal\Core\Url;
  *
  * @group token
  */
-class CommentTest extends KernelTestBase {
+class CommentTest extends TokenKernelTestBase {
 
   use CommentTestTrait;
 

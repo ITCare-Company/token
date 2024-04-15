@@ -24,7 +24,7 @@ use Drupal\Tests\taxonomy\Traits\TaxonomyTestTrait;
  *
  * @group token
  */
-class FieldTest extends KernelTestBase {
+class FieldTest extends TokenKernelTestBase {
 
   use TaxonomyTestTrait;
 

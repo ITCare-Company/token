@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @group token
  */
-class UrlTest extends KernelTestBase {
+class UrlTest extends TokenKernelTestBase {
 
   /**
    * The token service.

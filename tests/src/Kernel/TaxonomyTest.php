@@ -12,7 +12,7 @@ use Drupal\Core\Url;
  *
  * @group token
  */
-class TaxonomyTest extends KernelTestBase {
+class TaxonomyTest extends TokenKernelTestBase {
 
   protected $vocab;
 

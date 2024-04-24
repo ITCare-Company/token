@@ -5,26 +5,26 @@
  * Token callbacks for the token module.
  */
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\ContentEntityTypeInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\Entity\TypedData\EntityDataDefinitionInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Render\BubbleableMetadata;
-use Drupal\Component\Utility\Html;
 use Drupal\Core\Routing\RouteObjectInterface;
 use Drupal\Core\TypedData\DataReferenceDefinitionInterface;
 use Drupal\Core\Url;
 use Drupal\field\FieldStorageConfigInterface;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\menu_link_content\MenuLinkContentInterface;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 use Drupal\node\NodeInterface;
 use Drupal\system\Entity\Menu;
 use Drupal\user\UserInterface;
-use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\Core\Entity\ContentEntityTypeInterface;
-use Drupal\image\Entity\ImageStyle;
 
 /**
  * Implements hook_token_info_alter().

@@ -4,10 +4,10 @@ namespace Drupal\Tests\token\Functional;
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\node\Entity\NodeType;
-use Drupal\node\Entity\Node;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\node\Entity\Node;
+use Drupal\node\Entity\NodeType;
 
 /**
  * Tests field ui.

@@ -1540,7 +1540,7 @@ function _token_menu_link_best_match(NodeInterface $node, array $links) {
 function _field_token_info_alter(&$info) {
   $type_info = \Drupal::service('plugin.manager.field.field_type')->getDefinitions();
 
-  // Attach field tokens to their respecitve entity tokens.
+  // Attach field tokens to their respective entity tokens.
   foreach (\Drupal::entityTypeManager()->getDefinitions() as $entity_type_id => $entity_type) {
     if (!$entity_type->entityClassImplements(ContentEntityInterface::class)) {
       continue;
@@ -1820,7 +1820,7 @@ function _field_tokens($type, $tokens, array $data, array $options, BubbleableMe
           // more than one nested field it would still replace all in every
           // call. Replace them one by one instead, which is slightly slower
           // but ensures that the number of replacements do not grow
-          // exponentialy.
+          // exponentially.
           foreach ($field_tokens as $field_token_key => $field_token_value) {
             $replacements += \Drupal::token()->generate($field_name, [$field_token_key => $field_token_value], $property_token_data, $options, $bubbleable_metadata);
           }

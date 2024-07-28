@@ -335,7 +335,7 @@ class FieldTest extends TokenKernelTestBase {
     /** @var \Drupal\token\Token $tokenService */
     $tokenService = \Drupal::service('token');
 
-    // Test the token info of the text field of the artcle content type.
+    // Test the token info of the text field of the article content type.
     $token_info = $tokenService->getTokenInfo('node', 'test_field');
     $this->assertEquals('Test field', $token_info['name'], 'The token info name is correct.');
     $this->assertEquals('Text (formatted) field.', $token_info['description'], 'The token info description is correct.');

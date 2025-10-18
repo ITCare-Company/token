@@ -16,7 +16,7 @@ services:
       - { name: event_subscriber }
   token.module_provider:
     class: Drupal\token\TokenModuleProvider
-    arguments: ['@cache.default', '@lock', '@token']
+    arguments: ['@cache.bootstrap', '@lock', '@token']
     tags:
       - { name: needs_destruction }
   Drupal\token\TokenModuleProvider: '@token.module_provider'

@@ -916,6 +916,9 @@ final class TokenTokensHooks {
         // Chained token relationships.
         if ($menu_tokens = $this->token->findWithPrefix($tokens, 'menu-link')) {
           if ($node->getFieldDefinition('menu_link') && $menu_link = $node->menu_link->entity) {
+            if ($menu_link instanceof MenuLinkContentInterface) {
+              $menu_link = $this->menuLinkManager->createInstance($menu_link->getPluginId());
+            }
             /** @var \Drupal\menu_link_content\MenuLinkContentInterface $menu_link */
             $replacements += $this->token->generate('menu-link', $menu_tokens, ['menu-link' => $menu_link], $options, $bubbleable_metadata);
           }

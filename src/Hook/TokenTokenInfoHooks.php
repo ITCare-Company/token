@@ -3,6 +3,7 @@
 namespace Drupal\token\Hook;
 
 use Drupal\Component\Datetime\TimeInterface;
+use Drupal\Component\Utility\DeprecationHelper;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -702,7 +703,7 @@ final class TokenTokenInfoHooks {
         }
         // Provide image_with_image_style tokens for image fields.
         if ($field->getType() == 'image') {
-          $image_styles = image_style_options(FALSE);
+          $image_styles = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.4.0', fn() => \Drupal::service('Drupal\image\ImageDerivativeUtilities')->styleOptions(FALSE), fn() => image_style_options(FALSE));
           foreach ($image_styles as $style => $description) {
             $info['tokens'][$field_token_name][$style] = [
               'name' => $description,

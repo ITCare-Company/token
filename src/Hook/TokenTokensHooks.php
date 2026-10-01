@@ -3,6 +3,7 @@
 namespace Drupal\token\Hook;
 
 use Drupal\Component\Datetime\TimeInterface;
+use Drupal\Component\Utility\DeprecationHelper;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Controller\TitleResolverInterface;
 use Drupal\Core\Datetime\DateFormatterInterface;
@@ -1022,7 +1023,7 @@ final class TokenTokensHooks {
     // to the menu via the node UI, we use that as a default. If it
     // was not added via the node UI then grab the first in the
     // retrieved array.
-    $defaults = menu_ui_get_menu_link_defaults($node);
+    $defaults = DeprecationHelper::backwardsCompatibleCall(\Drupal::VERSION, '11.4.0', fn() => \Drupal::service('Drupal\menu_ui\MenuUiUtility')->getMenuLinkDefaults($node), fn() => menu_ui_get_menu_link_defaults($node));
     if (isset($defaults['id']) && isset($links[$defaults['id']])) {
       $link = $links[$defaults['id']];
     }

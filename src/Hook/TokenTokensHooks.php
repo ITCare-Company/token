@@ -656,8 +656,12 @@ final class TokenTokensHooks {
             break;
 
           case 'original':
-            if ($this->tokenModuleProvider->getTokenModule($type, 'original') == 'token' && !empty($entity->original)) {
-              $label = $entity->original->label();
+            // D12: EntityBase::$original was renamed to $originalEntity with
+            // no BC magic getter (change record 3295826) — use
+            // getOriginal() when present.
+            $original_entity = method_exists($entity, 'getOriginal') ? $entity->getOriginal() : $entity->original;
+            if ($this->tokenModuleProvider->getTokenModule($type, 'original') == 'token' && !empty($original_entity)) {
+              $label = $original_entity->label();
               $replacements[$original] = $label;
             }
             break;
@@ -670,9 +674,12 @@ final class TokenTokensHooks {
         ], $options, $bubbleable_metadata);
       }
       // [entity:original:*] chained tokens.
-      if (($original_tokens = $this->token->findWithPrefix($tokens, 'original')) && $this->tokenModuleProvider->getTokenModule($type, 'original') == 'token' && !empty($entity->original)) {
+      // D12: EntityBase::$original was renamed to $originalEntity with no BC
+      // magic getter (change record 3295826) — use getOriginal() when present.
+      $original_entity = method_exists($entity, 'getOriginal') ? $entity->getOriginal() : $entity->original;
+      if (($original_tokens = $this->token->findWithPrefix($tokens, 'original')) && $this->tokenModuleProvider->getTokenModule($type, 'original') == 'token' && !empty($original_entity)) {
         $replacements += $this->token->generate($type, $original_tokens, [
-          $type => $entity->original,
+          $type => $original_entity,
         ], $options, $bubbleable_metadata);
       }
       // [entity:language:*] chained tokens.

@@ -95,23 +95,23 @@ function token_get_token_problems() {
   $token_problems = [
     'not-array' => [
       'label' => t('Tokens or token types not defined as arrays'),
-      'severity' => REQUIREMENT_ERROR,
+      'severity' => (class_exists('\\Drupal\\Core\\Extension\\Requirement\\RequirementSeverity') ? \Drupal\Core\Extension\Requirement\RequirementSeverity::Error : REQUIREMENT_ERROR),
     ],
     'missing-info' => [
       'label' => t('Tokens or token types missing name property'),
-      'severity' => REQUIREMENT_WARNING,
+      'severity' => (class_exists('\\Drupal\\Core\\Extension\\Requirement\\RequirementSeverity') ? \Drupal\Core\Extension\Requirement\RequirementSeverity::Warning : REQUIREMENT_WARNING),
     ],
     'type-no-tokens' => [
       'label' => t('Token types do not have any tokens defined'),
-      'severity' => REQUIREMENT_INFO,
+      'severity' => (class_exists('\\Drupal\\Core\\Extension\\Requirement\\RequirementSeverity') ? \Drupal\Core\Extension\Requirement\RequirementSeverity::Info : REQUIREMENT_INFO),
     ],
     'tokens-no-type' => [
       'label' => t('Token types are not defined but have tokens'),
-      'severity' => REQUIREMENT_INFO,
+      'severity' => (class_exists('\\Drupal\\Core\\Extension\\Requirement\\RequirementSeverity') ? \Drupal\Core\Extension\Requirement\RequirementSeverity::Info : REQUIREMENT_INFO),
     ],
     'duplicate' => [
       'label' => t('Token or token types are defined by multiple modules'),
-      'severity' => REQUIREMENT_ERROR,
+      'severity' => (class_exists('\\Drupal\\Core\\Extension\\Requirement\\RequirementSeverity') ? \Drupal\Core\Extension\Requirement\RequirementSeverity::Error : REQUIREMENT_ERROR),
     ],
   ];
 

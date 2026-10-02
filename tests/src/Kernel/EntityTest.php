@@ -92,9 +92,12 @@ class EntityTest extends TokenKernelTestBase {
     ];
     $this->assertTokens('node', ['node' => $node], $tokens);
 
-    // Emulate the original entity property that would be available from
-    // during node save and change the title for the node.
-    $node->original = \Drupal::entityTypeManager()->getStorage('node')->loadUnchanged($node->id());
+    // Emulate the original entity that would be available during node save
+    // and change the title for the node. D12 removed the $original property
+    // (backing property renamed to $originalEntity, no BC magic-getter, see
+    // CR#3295826) -- use setOriginal() so this still exercises
+    // TokenTokensHooks's getOriginal()-based read on D12.
+    $node->setOriginal(\Drupal::entityTypeManager()->getStorage('node')->loadUnchanged($node->id()));
     $node->title = 'New title';
 
     $tokens = [
